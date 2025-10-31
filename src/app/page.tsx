@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import SiteNav from "@/components/site-nav";
+
 const mockCourses = [
   {
     title: "Introduction to Python",
@@ -39,7 +41,9 @@ const analyticsCards = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-zinc-100">
-      <header className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-12 px-6 pb-24 pt-16 text-center lg:flex-row lg:text-left">
+      <SiteNav />
+      <div className="pt-24">
+        <header className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-12 px-6 pb-24 pt-12 text-center lg:flex-row lg:text-left">
         <div className="max-w-xl space-y-8">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-1 text-sm font-medium text-blue-600 shadow-sm">
             <span className="h-2 w-2 rounded-full bg-blue-500" />
@@ -340,6 +344,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      </div>
     </div>
   );
 }
