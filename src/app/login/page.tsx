@@ -1,97 +1,137 @@
-import Image from "next/image";
-
-import SiteNav from "@/components/site-nav";
-
 export default function LoginPage() {
   return (
-    <div className="min-h-screen bg-zinc-100">
-      <SiteNav />
-      <main className="mx-auto grid w-full max-w-5xl gap-10 px-6 pb-24 pt-32 lg:grid-cols-[1.1fr,0.9fr]">
-        <section className="space-y-6">
-          <span className="inline-flex items-center gap-2 rounded-full bg-blue-100/80 px-4 py-1 text-xs font-medium text-blue-600">
-            <span className="h-2 w-2 rounded-full bg-blue-500" />
-            Student Portal
-          </span>
-          <h1 className="text-4xl font-semibold text-zinc-900 sm:text-5xl">
-            Inicia sesión y retoma tus clases personalizadas
-          </h1>
-          <p className="text-lg text-zinc-600">
-            Conéctate a tu cuenta para sincronizar progreso, preguntas resueltas por la IA y continuar con el plan de estudio que
-            tus mentores han preparado para ti.
-          </p>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl bg-white/70 p-6 shadow-lg shadow-blue-100">
-              <h2 className="text-lg font-semibold text-zinc-900">Aprendizaje adaptativo</h2>
-              <p className="mt-2 text-sm text-zinc-600">
-                Tu panel se actualiza automáticamente con cursos recomendados según tu rendimiento y tus objetivos profesionales.
-              </p>
-            </div>
-            <div className="rounded-2xl bg-white/70 p-6 shadow-lg shadow-blue-100">
-              <h2 className="text-lg font-semibold text-zinc-900">Autenticación segura</h2>
-              <p className="mt-2 text-sm text-zinc-600">
-                Inicia sesión con correo institucional o proveedores externos. Toda la plataforma funciona sobre OAuth 2.0 y MFA opcional.
-              </p>
-            </div>
+    <div className="bg-background-light dark:bg-background-dark font-display text-[#333333] dark:text-gray-200">
+      <div className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div className="mx-auto w-full max-w-md">
+          <div className="fade-in mb-8 text-center" style={{ animationDelay: "0.1s" }}>
+            <svg
+              className="mx-auto h-12 w-12 text-primary"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+              />
+            </svg>
+            <h1 className="mt-4 text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl">
+              University AI
+            </h1>
           </div>
-        </section>
 
-        <section className="relative rounded-3xl border border-white/60 bg-white/90 p-10 shadow-2xl shadow-blue-100">
-          <div className="space-y-6">
-            <div className="text-center">
-              <h2 className="text-2xl font-semibold text-zinc-900">Bienvenido de nuevo</h2>
-              <p className="mt-1 text-sm text-zinc-500">Ingresa tus credenciales para acceder al ecosistema universitario.</p>
-            </div>
-            <div className="space-y-4">
-              <label className="space-y-2 text-sm font-medium text-zinc-700">
-                Correo electrónico institucional
-                <input
-                  type="email"
-                  placeholder="nombre.apellido@universidad.edu"
-                  className="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-600 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                />
-              </label>
-              <label className="space-y-2 text-sm font-medium text-zinc-700">
-                Contraseña
-                <input
-                  type="password"
-                  placeholder="••••••••"
-                  className="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-600 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                />
-              </label>
-              <div className="flex items-center justify-between text-xs text-zinc-500">
-                <label className="flex items-center gap-2">
-                  <input type="checkbox" className="h-4 w-4 rounded border-zinc-300 text-blue-600" />
-                  Recordarme
+          <div
+            className="fade-in rounded-xl bg-white p-8 shadow-lg dark:bg-background-dark/50 sm:p-10"
+            style={{ animationDelay: "0.2s" }}
+          >
+            <h2 className="mb-6 text-center text-2xl font-bold text-gray-800 dark:text-white">
+              Welcome Back
+            </h2>
+            <form className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300" htmlFor="email">
+                  Email Address
                 </label>
-                <a href="#" className="font-medium text-blue-600 hover:underline">
-                  ¿Olvidaste tu contraseña?
+                <div className="mt-1">
+                  <input
+                    className="w-full rounded-lg border border-gray-300 bg-background-light px-4 py-3 transition duration-150 ease-in-out focus:border-primary focus:ring-primary dark:border-gray-600 dark:bg-background-dark"
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300" htmlFor="password">
+                  Password
+                </label>
+                <div className="mt-1">
+                  <input
+                    className="w-full rounded-lg border border-gray-300 bg-background-light px-4 py-3 transition duration-150 ease-in-out focus:border-primary focus:ring-primary dark:border-gray-600 dark:bg-background-dark"
+                    id="password"
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    placeholder="••••••••"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="flex items-center justify-between text-sm">
+                <a className="font-medium text-primary hover:text-primary/80" href="#">
+                  Forgot your password?
+                </a>
+              </div>
+              <button
+                type="submit"
+                className="w-full rounded-lg bg-primary py-3 text-base font-medium text-white shadow-sm transition duration-150 ease-in-out hover:bg-primary/90"
+              >
+                Sign In
+              </button>
+            </form>
+
+            <div className="mt-6">
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-gray-300 dark:border-gray-600" />
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="bg-white px-2 text-gray-500 dark:bg-background-dark/50 dark:text-gray-400">
+                    Or sign in with
+                  </span>
+                </div>
+              </div>
+              <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <a
+                  className="inline-flex w-full items-center justify-center gap-3 rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition duration-150 ease-in-out hover:bg-gray-50 dark:border-gray-600 dark:bg-background-dark/50 dark:text-gray-300 dark:hover:bg-background-dark/70"
+                  href="#"
+                >
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFgBlKX2cju1R7rYQsNleIc8EyiMib2m-Lv3FD7StugeHCUia6jxFhRoW7J9PgQKAXseEhOc7CIQ673azKbTfP4pBpbG4AE5_brX00H5-jbl-9Il-dmOIav-FFIuRzLFlcm1oNNXJNJ5ZFlXjz9GGKXt4b2xaPX8bXlv2JunMR_-4FZxa5oSyeXPeZtEJ8FpOjrYVW7VyuU2miNdQGMugU079eXD66c0a-wZ0PFwJD4HsE55riq5gZ0RjxhQIo4J63LpM_uUwJKfw"
+                    alt="Google logo"
+                    className="h-5 w-5"
+                  />
+                  Google
+                </a>
+                <a
+                  className="inline-flex w-full items-center justify-center gap-3 rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition duration-150 ease-in-out hover:bg-gray-50 dark:border-gray-600 dark:bg-background-dark/50 dark:text-gray-300 dark:hover:bg-background-dark/70"
+                  href="#"
+                >
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOphBkh1aL_ouVvQE2OWEfgrSMgu6yxg5ULW1O-Tqn41LlAFVOMVV0r7Pi1ilR4uo_gDIN4lLBx5HLIXFU0ATREM8Su7LFwQ6ZZqF3NiU2HBkRsbujV2yzAg_Hvhsq-RWpMZwMmg0DK2nkD1RZUlQSBUoGxmX3FtnJh8OiCy3BUROkzPmcOnAPOkpDlUUk5dD08uysEf5Ia_RE1GTGFrOn4y-VudrIb_-Gm8Q0ABunLAB-RvJfhr1xhsXL-1B-Qy77r8KPPs3Uxk8"
+                    alt="Microsoft logo"
+                    className="h-5 w-5"
+                  />
+                  Microsoft
                 </a>
               </div>
             </div>
-            <button className="w-full rounded-xl bg-blue-600 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">
-              Iniciar sesión
-            </button>
-            <div className="flex items-center gap-3 text-xs text-zinc-400">
-              <span className="h-px flex-1 bg-zinc-200" /> ó ingresar con <span className="h-px flex-1 bg-zinc-200" />
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2">
-              <button className="flex items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold text-zinc-600 transition hover:border-blue-300 hover:text-blue-600">
-                <Image src="/logos/google.svg" alt="Google" width={18} height={18} />
-                Google
-              </button>
-              <button className="flex items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold text-zinc-600 transition hover:border-blue-300 hover:text-blue-600">
-                <Image src="/logos/microsoft.svg" alt="Microsoft" width={18} height={18} />
-                Microsoft
-              </button>
-            </div>
-            <p className="text-center text-xs text-zinc-400">
-              ¿Aún no tienes cuenta? <span className="font-medium text-blue-600">Solicita acceso institucional</span>.
+          </div>
+
+          <div
+            className="fade-in mt-8 text-center text-sm text-gray-500 dark:text-gray-400"
+            style={{ animationDelay: "0.3s" }}
+          >
+            <p>By signing in, you agree to our</p>
+            <p>
+              <a className="font-medium text-primary hover:text-primary/80" href="#">
+                Terms of Service
+              </a>{" "}
+              and{" "}
+              <a className="font-medium text-primary hover:text-primary/80" href="#">
+                Privacy Policy
+              </a>
+              .
             </p>
           </div>
-          <div className="pointer-events-none absolute -left-8 -top-10 h-24 w-24 rounded-full bg-blue-100 blur-2xl" />
-          <div className="pointer-events-none absolute -bottom-16 -right-6 h-32 w-32 rounded-full bg-purple-100 blur-2xl" />
-        </section>
-      </main>
+        </div>
+      </div>
     </div>
   );
 }
