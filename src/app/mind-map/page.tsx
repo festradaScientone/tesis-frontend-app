@@ -1,113 +1,180 @@
-import SiteNav from "@/components/site-nav";
-
-const nodes = [
-  {
-    title: "Tema central",
-    description: "Arquitectura de aprendizaje federado",
-    connections: 5,
-  },
-  {
-    title: "Investigaciones clave",
-    description: "Papers recientes sobre privacidad diferencial",
-    connections: 3,
-  },
-  {
-    title: "Aplicaciones",
-    description: "Salud, fintech y movilidad inteligente",
-    connections: 4,
-  },
-  {
-    title: "Preguntas abiertas",
-    description: "¿Cómo optimizar la comunicación entre nodos?",
-    connections: 2,
-  },
+const mindMaps = [
+  { title: "Introduction to AI" },
+  { title: "Machine Learning Basics", active: true },
+  { title: "Neural Networks" },
 ];
 
 export default function MindMapPage() {
   return (
-    <div className="min-h-screen bg-zinc-100">
-      <SiteNav />
-      <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 pb-24 pt-32">
-        <header className="flex flex-col gap-4 rounded-3xl bg-white/80 p-10 shadow-xl shadow-blue-50 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h1 className="text-3xl font-semibold text-zinc-900">Editor de mapas mentales</h1>
-            <p className="mt-2 text-sm text-zinc-500">
-              Organiza ideas, relaciona conceptos y colabora en tiempo real con tu equipo académico.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-3">
-            <button className="rounded-full border border-zinc-200 px-4 py-2 text-xs font-semibold text-zinc-600 transition hover:border-blue-500 hover:text-blue-600">
-              Compartir enlace
-            </button>
-            <button className="rounded-full bg-blue-600 px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-blue-200 transition hover:bg-blue-500">
-              Presentar mapa
-            </button>
-          </div>
-        </header>
-
-        <section className="grid gap-8 lg:grid-cols-[1.15fr,0.85fr]">
-          <div className="space-y-6 rounded-3xl bg-white/80 p-8 shadow-xl shadow-blue-50">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-zinc-900">Vista general</h2>
-              <div className="flex gap-2 text-xs font-semibold text-zinc-500">
-                <button className="rounded-full border border-zinc-200 px-3 py-1 transition hover:border-blue-500 hover:text-blue-600">
-                  Centrar
-                </button>
-                <button className="rounded-full border border-zinc-200 px-3 py-1 transition hover:border-blue-500 hover:text-blue-600">
-                  Auto-organizar
-                </button>
+    <div className="font-display bg-background-light text-gray-800 dark:bg-background-dark dark:text-gray-200">
+      <div className="flex h-screen">
+        <aside className="flex w-64 flex-shrink-0 flex-col border-r border-gray-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+          <div className="border-b border-gray-200 p-4 dark:border-slate-800">
+            <div className="flex items-center gap-3">
+              <div className="size-8 text-primary">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor" />
+                </svg>
               </div>
-            </div>
-            <div className="relative h-[420px] overflow-hidden rounded-3xl border border-white/60 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-3xl bg-white/90 px-8 py-6 text-center shadow-xl shadow-blue-100">
-                <p className="text-xs uppercase tracking-[0.2em] text-blue-500">Nodo principal</p>
-                <h3 className="mt-2 text-2xl font-semibold text-zinc-900">Arquitectura de aprendizaje federado</h3>
-                <p className="mt-2 text-sm text-zinc-600">Coordina nodos descentralizados que entrenan modelos sin compartir datos sensibles.</p>
-              </div>
-              <div className="absolute left-16 top-16 rounded-2xl bg-white/80 px-5 py-4 text-left shadow-lg shadow-blue-100">
-                <p className="text-xs uppercase text-zinc-400">Idea</p>
-                <p className="text-sm font-semibold text-zinc-900">Privacidad diferencial</p>
-              </div>
-              <div className="absolute right-16 top-24 rounded-2xl bg-white/80 px-5 py-4 text-left shadow-lg shadow-blue-100">
-                <p className="text-xs uppercase text-zinc-400">Caso de uso</p>
-                <p className="text-sm font-semibold text-zinc-900">Diagnóstico remoto</p>
-              </div>
-              <div className="absolute bottom-16 left-24 rounded-2xl bg-white/80 px-5 py-4 text-left shadow-lg shadow-blue-100">
-                <p className="text-xs uppercase text-zinc-400">Pregunta</p>
-                <p className="text-sm font-semibold text-zinc-900">¿Cómo reducir latencia?</p>
-              </div>
-              <div className="absolute bottom-12 right-20 rounded-2xl bg-white/80 px-5 py-4 text-left shadow-lg shadow-blue-100">
-                <p className="text-xs uppercase text-zinc-400">Referencia</p>
-                <p className="text-sm font-semibold text-zinc-900">Paper NeurIPS 2023</p>
-              </div>
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">CourseMind</h2>
             </div>
           </div>
-
-          <aside className="space-y-6">
-            <div className="rounded-3xl border border-white/60 bg-white/80 p-8 shadow-xl shadow-blue-50">
-              <h2 className="text-lg font-semibold text-zinc-900">Nodos y conexiones</h2>
-              <div className="mt-4 space-y-4">
-                {nodes.map((node) => (
-                  <div key={node.title} className="rounded-2xl border border-zinc-100 bg-white p-4">
-                    <p className="text-sm font-semibold text-zinc-900">{node.title}</p>
-                    <p className="text-xs text-zinc-500">{node.description}</p>
-                    <p className="mt-2 text-xs font-medium text-blue-600">{node.connections} conexiones directas</p>
-                  </div>
+          <div className="flex-1 overflow-y-auto">
+            <div className="p-4">
+              <div className="mb-6 flex items-center gap-3">
+                <div
+                  className="size-10 rounded-full bg-cover bg-center"
+                  style={{
+                    backgroundImage:
+                      "url('https://lh3.googleusercontent.com/aida-public/AB6AXuA1q7x4YKJbyEORsaLlAWL2ndg0_49b6UnNDHzf1tqQUBnQtSIlwJjVv3hvZY2b3cZ47OFA28At-4sBHSe-nL3HTCdl7Wyc2yLpi9mSWeopcCcRXZnxkU3yropnz2X89gSMpoqtJxHcNIi-qTXS2dIaejPeT-pke1c1iJQplJ5YcN_rWp4R0UmonmMTjVDfdJQMquFb2ULXHJpmoGvNGCZh7c1p4Xx9CJoc_yQ-HFRrurIJoXAYghKuQUrt3Z_3zW9QGhuxATnIG0c')",
+                  }}
+                />
+                <div className="flex flex-col">
+                  <h1 className="text-base font-medium text-gray-900 dark:text-white">John Doe</h1>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">john.doe@example.com</p>
+                </div>
+              </div>
+              <nav className="flex flex-col gap-2">
+                <a className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-700 hover:bg-primary/10 dark:text-gray-300 dark:hover:bg-primary/20" href="#">
+                  <span className="material-symbols-outlined">dashboard</span>
+                  <span className="text-sm font-medium">Dashboard</span>
+                </a>
+                <a className="flex items-center gap-3 rounded-lg bg-primary/20 px-3 py-2 text-primary dark:bg-primary/30 dark:text-white" href="#">
+                  <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
+                    video_library
+                  </span>
+                  <span className="text-sm font-medium">My Courses</span>
+                </a>
+                <a className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-700 hover:bg-primary/10 dark:text-gray-300 dark:hover:bg-primary/20" href="#">
+                  <span className="material-symbols-outlined">settings</span>
+                  <span className="text-sm font-medium">Settings</span>
+                </a>
+              </nav>
+            </div>
+            <div className="border-t border-gray-200 p-4 dark:border-slate-800">
+              <h3 className="mb-2 px-3 text-sm font-semibold text-gray-500 dark:text-gray-400">Mind Maps</h3>
+              <div className="flex flex-col gap-1">
+                {mindMaps.map((map) => (
+                  <a
+                    key={map.title}
+                    className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
+                      map.active
+                        ? "bg-primary/10 font-medium text-primary dark:bg-primary/20 dark:text-white"
+                        : "text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-slate-800"
+                    }`}
+                    href="#"
+                  >
+                    {map.title}
+                  </a>
                 ))}
               </div>
             </div>
-            <div className="rounded-3xl border border-white/60 bg-gradient-to-br from-blue-500 to-purple-500 p-8 text-white shadow-xl shadow-blue-100">
-              <h2 className="text-lg font-semibold">Modo colaborativo</h2>
-              <p className="mt-2 text-sm text-blue-50/90">
-                Invita a compañeros, asigna responsables por nodo y activa votaciones rápidas para priorizar ideas.
-              </p>
-              <button className="mt-6 w-full rounded-full bg-white/20 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/30">
-                Activar coedición en vivo
+          </div>
+          <div className="border-t border-gray-200 p-4 dark:border-slate-800">
+            <a className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-700 hover:bg-primary/10 dark:text-gray-300 dark:hover:bg-primary/20" href="#">
+              <span className="material-symbols-outlined">logout</span>
+              <span className="text-sm font-medium">Logout</span>
+            </a>
+          </div>
+        </aside>
+        <div className="flex flex-1 flex-col overflow-hidden">
+          <header className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-200 bg-white/80 px-6 py-3 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/80">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              <span className="material-symbols-outlined text-base align-middle text-green-500">check_circle</span>
+              <span className="ml-1 align-middle">All changes saved</span>
+            </p>
+            <div className="flex items-center gap-2">
+              <button className="flex h-9 min-w-[84px] items-center justify-center gap-2 rounded-lg bg-primary px-4 text-sm font-medium tracking-wide text-white">
+                <span className="material-symbols-outlined text-base">picture_as_pdf</span>
+                <span className="truncate">Export PDF</span>
+              </button>
+              <button className="flex h-9 min-w-[84px] items-center justify-center gap-2 rounded-lg bg-gray-200 px-4 text-sm font-medium tracking-wide text-gray-800 dark:bg-slate-700 dark:text-white">
+                <span className="material-symbols-outlined text-base">image</span>
+                <span className="truncate">Export PNG</span>
+              </button>
+              <button className="flex h-9 items-center justify-center gap-2 rounded-lg bg-gray-200 px-2.5 text-sm font-medium tracking-wide text-gray-800 dark:bg-slate-700 dark:text-white">
+                <span className="material-symbols-outlined text-xl">share</span>
+              </button>
+              <button className="flex h-9 items-center justify-center gap-2 rounded-lg bg-gray-200 px-2.5 text-sm font-medium tracking-wide text-gray-800 dark:bg-slate-700 dark:text-white">
+                <span className="material-symbols-outlined text-xl">undo</span>
+              </button>
+              <button className="flex h-9 items-center justify-center gap-2 rounded-lg bg-gray-200 px-2.5 text-sm font-medium tracking-wide text-gray-800 dark:bg-slate-700 dark:text-white">
+                <span className="material-symbols-outlined text-xl">redo</span>
               </button>
             </div>
-          </aside>
-        </section>
-      </main>
+          </header>
+          <main className="relative flex-1 overflow-auto bg-background-light p-8 dark:bg-background-dark">
+            <div className="relative h-full w-full">
+              <div className="absolute left-1/2 top-1/2 w-72 -translate-x-1/2 -translate-y-1/2">
+                <div className="flex flex-col rounded-xl bg-white shadow-lg dark:bg-slate-800">
+                  <div className="flex flex-col gap-1 p-4">
+                    <p className="text-lg font-bold text-gray-900 dark:text-white">Machine Learning</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Core concept of the course.</p>
+                  </div>
+                </div>
+              </div>
+              <svg className="pointer-events-none absolute inset-0 h-full w-full" xmlns="http://www.w3.org/2000/svg">
+                <line x1="calc(50% - 150px)" y1="50%" x2="calc(50% - 144px)" y2="50%" stroke="#a0aec0" strokeWidth="2" />
+                <line x1="calc(50% + 144px)" y1="50%" x2="calc(50% + 200px)" y2="25%" stroke="#a0aec0" strokeWidth="2" />
+                <line x1="calc(50% + 144px)" y1="50%" x2="calc(50% + 200px)" y2="75%" stroke="#a0aec0" strokeWidth="2" />
+                <line x1="calc(50% - 370px)" y1="50%" x2="calc(50% - 420px)" y2="35%" stroke="#a0aec0" strokeWidth="2" />
+                <line x1="calc(50% - 370px)" y1="50%" x2="calc(50% - 420px)" y2="65%" stroke="#a0aec0" strokeWidth="2" />
+              </svg>
+              <div className="absolute left-[calc(50%-380px)] top-1/2 w-72 -translate-y-1/2">
+                <div className="flex flex-col rounded-xl bg-white shadow-lg dark:bg-slate-800">
+                  <div
+                    className="aspect-video w-full rounded-t-xl bg-cover bg-center"
+                    style={{
+                      backgroundImage:
+                        "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBFXeSzCli96ql75cZd3Z1qb0UR0jThXp_VBk_nt8wQ2k_ea7vTqaCsZ9jhk0s6i64XEaqaXuXFJzVcUatKe8p08dR3VlnBJFfP9taLjAEF7Mn3ykT9Z4_tJyW2bObpFkUaTu7E-Ny3mzHIKeT8_ig5le4kaPjFlMM9057J67BlHXSypDQ_oxtVTgQQYjf3NZ61KPuBPk6QH7XXPULgTiiMNP4BRsAfsDXD4AcCzibzCL6bzU2y2sxGo1YufSDMnHbNK5Ajnd2U0Jk')",
+                    }}
+                  />
+                  <div className="flex flex-col gap-1 p-4">
+                    <p className="text-lg font-bold text-gray-900 dark:text-white">Supervised Learning</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Learning with labeled data.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute left-[calc(50%+200px)] top-1/4 w-72 -translate-y-1/2">
+                <div className="flex flex-col rounded-xl bg-white shadow-lg dark:bg-slate-800">
+                  <div className="flex flex-col gap-1 p-4">
+                    <p className="text-lg font-bold text-gray-900 dark:text-white">Unsupervised Learning</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Finding patterns in data.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute left-[calc(50%+200px)] top-3/4 w-72 -translate-y-1/2">
+                <div className="flex flex-col rounded-xl bg-white shadow-lg dark:bg-slate-800">
+                  <div className="flex flex-col gap-1 p-4">
+                    <p className="text-lg font-bold text-gray-900 dark:text-white">Reinforcement Learning</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Learning through rewards.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute left-[calc(50%-650px)] top-[35%] w-64 -translate-y-1/2">
+                <div className="flex flex-col rounded-xl bg-white shadow-lg dark:bg-slate-800">
+                  <div className="flex flex-col gap-1 p-4">
+                    <p className="text-base font-bold text-gray-900 dark:text-white">Classification</p>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute left-[calc(50%-650px)] top-[65%] w-64 -translate-y-1/2">
+                <div className="flex flex-col rounded-xl bg-white shadow-lg dark:bg-slate-800">
+                  <div className="flex flex-col gap-1 p-4">
+                    <p className="text-base font-bold text-gray-900 dark:text-white">Regression</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="absolute bottom-8 right-8">
+              <button className="flex h-14 items-center justify-center gap-3 rounded-xl bg-primary px-5 text-base font-bold tracking-wide text-white shadow-lg transition-colors hover:bg-primary/90">
+                <span className="material-symbols-outlined">add</span>
+                <span className="truncate">Add Node</span>
+              </button>
+            </div>
+          </main>
+        </div>
+      </div>
     </div>
   );
 }
