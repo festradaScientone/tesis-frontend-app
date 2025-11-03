@@ -7,21 +7,20 @@ const ALLOWED_DOMAIN = "@unitec.edu";
 export default clerkMiddleware(async (auth, request) => {
   const isPublic = isPublicRoute(request);
   const authState = await auth();
-  const { userId, redirectToSignIn, sessionClaims, sessionId } = authState;
+  const { userId, redirectToSignIn, sessionId } = authState;
 
   if (!userId && !isPublic) {
     return redirectToSignIn({ returnBackUrl: request.url });
   }
 
   if (userId) {
-    const claims = (sessionClaims ?? {}) as Record<string, unknown>;
-    const claimEmail = (claims.email as string | undefined) ?? null;
-    const claimEmailList = (claims.email_addresses as string[] | undefined) ?? [];
-    const primaryEmail = claimEmail ?? claimEmailList[0] ?? "";
+    const client = await clerkClient();
+    const user = await client.users.getUser(userId);
+    const primaryEmail =
+      user.primaryEmailAddress?.emailAddress ?? user.emailAddresses[0]?.emailAddress ?? "";
 
     if (!primaryEmail.toLowerCase().endsWith(ALLOWED_DOMAIN)) {
       if (sessionId) {
-        const client = await clerkClient();
         await client.sessions.revokeSession(sessionId);
       }
       const url = new URL("/login", request.url);
