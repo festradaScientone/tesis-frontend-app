@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const courses = [
   {
     title: "Introduction to Python",
@@ -60,14 +62,24 @@ export default function DashboardPage() {
               <h1 className="text-xl font-bold">CourseApp</h1>
             </div>
             <nav className="flex flex-col gap-2">
-              <a className="flex items-center gap-3 rounded-lg bg-[#AEC6CF]/20 px-3 py-2 text-[#343A40] dark:text-white" href="#">
+              <Link
+                className="flex items-center gap-3 rounded-lg bg-[#AEC6CF]/20 px-3 py-2 text-[#343A40] dark:text-white"
+                href="/dashboard"
+              >
                 <span className="material-symbols-outlined">dashboard</span>
                 <span className="font-medium">Dashboard</span>
-              </a>
+              </Link>
               <a className="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-[#AEC6CF]/10 dark:hover:bg-white/10" href="#">
                 <span className="material-symbols-outlined">grade</span>
                 <span className="font-medium">My Grades</span>
               </a>
+              <Link
+                className="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-[#AEC6CF]/10 dark:hover:bg-white/10"
+                href="/mind-map"
+              >
+                <span className="material-symbols-outlined">account_tree</span>
+                <span className="font-medium">Mind Map</span>
+              </Link>
               <a className="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-[#AEC6CF]/10 dark:hover:bg-white/10" href="#">
                 <span className="material-symbols-outlined">calendar_today</span>
                 <span className="font-medium">Calendar</span>
@@ -103,9 +115,10 @@ export default function DashboardPage() {
             </div>
             <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
               {courses.map((course) => (
-                <div
+                <Link
                   key={course.title}
                   className="flex flex-col gap-4 rounded-xl bg-white p-4 text-[#343A40] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-2px_rgba(0,0,0,0.05)] transition-all hover:-translate-y-1 hover:shadow-lg dark:bg-gray-800/50 dark:text-text-light"
+                  href="/course"
                 >
                   <div
                     className="aspect-video w-full rounded-lg bg-cover bg-center"
@@ -127,7 +140,7 @@ export default function DashboardPage() {
                       />
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </main>

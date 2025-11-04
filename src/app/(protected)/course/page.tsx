@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const videos = [
   {
     title: "Lecture 1: The Basics of Algorithms",
@@ -137,9 +139,12 @@ export default function CoursePage() {
                     <p className="text-sm font-normal leading-normal text-slate-500 dark:text-slate-400">{video.duration}</p>
                     <p className="text-sm font-normal leading-normal text-slate-500 dark:text-slate-400">{video.viewed}</p>
                   </div>
-                  <button className="mt-2 flex h-10 w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-4 text-sm font-bold leading-normal tracking-[0.015em] text-white transition-colors hover:bg-primary/90">
+                  <Link
+                    className="mt-2 flex h-10 w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-4 text-sm font-bold leading-normal tracking-[0.015em] text-white transition-colors hover:bg-primary/90"
+                    href="/video-analysis"
+                  >
                     <span className="truncate">Open in AI Assistant</span>
-                  </button>
+                  </Link>
                 </div>
               ))}
             </div>
