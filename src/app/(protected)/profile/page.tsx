@@ -1,8 +1,55 @@
-const weeklyStats = [
-  { label: "W1", height: "50%" },
-  { label: "W2", height: "70%" },
-  { label: "W3", height: "60%" },
-  { label: "W4", height: "90%", highlight: true },
+const assistantTrend = [
+  { label: "W1", height: "45%" },
+  { label: "W2", height: "65%" },
+  { label: "W3", height: "58%" },
+  { label: "W4", height: "92%", highlight: true },
+];
+
+const assistantTopics = [
+  { topic: "Supervised vs Unsupervised", share: 42 },
+  { topic: "Model Evaluation", share: 28 },
+  { topic: "Hyperparameters", share: 18 },
+];
+
+const participationMetrics = [
+  { label: "Notas guardadas", value: 68, delta: 12 },
+  { label: "Descargas de recursos", value: 34, delta: -3 },
+  { label: "Aportes en foros", value: 21, delta: 8 },
+];
+
+const comprehensionSections = [
+  { section: "Introducción", score: 88 },
+  { section: "Modelo supervisado", score: 76 },
+  { section: "Modelo no supervisado", score: 69 },
+  { section: "Q&A final", score: 92 },
+];
+
+const mindMapHighlights = [
+  {
+    title: "Conceptos clave",
+    detail: "85% de los alumnos conectaron 'dataset' con 'etiquetas' correctamente.",
+  },
+  {
+    title: "Vacíos detectados",
+    detail: "12% omitieron el nodo de 'evaluación' en sus mapas.",
+  },
+  {
+    title: "Mapas generados",
+    detail: "Promedio de 2.4 mapas por clase; 64% compartidos con el grupo.",
+  },
+];
+
+const feedbackMetrics = [
+  { label: "Claridad promedio", value: "4.3 / 5" },
+  { label: "Ritmo adecuado", value: "4.0 / 5" },
+  { label: "Estructura", value: "4.5 / 5" },
+  { label: "Satisfacción general", value: "92%" },
+];
+
+const actionableInsights = [
+  "Reforzar el segmento de modelos no supervisados: es el bloque con menor puntaje de comprensión.",
+  "Aprovechar preguntas del asistente sobre evaluación para añadir ejemplos prácticos en clase.",
+  "Compartir un resumen de mapas mentales para destacar conexiones ausentes en el grupo.",
 ];
 
 export default function ProfilePage() {
@@ -105,18 +152,23 @@ export default function ProfilePage() {
               </div>
               <div className="flex flex-col gap-6 lg:col-span-2">
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                  <div className="flex flex-col gap-2 rounded-xl border border-border-light bg-surface-light p-6 dark:border-border-dark dark:bg-surface-dark">
-                    <p className="text-base font-medium text-text-light-primary dark:text-text-dark-primary">Queries Asked</p>
+                  <div className="flex flex-col gap-4 rounded-xl border border-border-light bg-surface-light p-6 dark:border-border-dark dark:bg-surface-dark">
+                    <div className="flex items-center justify-between">
+                      <p className="text-base font-medium text-text-light-primary dark:text-text-dark-primary">
+                        Interacciones con el asistente
+                      </p>
+                      <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">87% resueltas</span>
+                    </div>
                     <p className="text-4xl font-bold text-primary">124</p>
                     <div className="flex items-center gap-1">
-                      <p className="text-sm text-text-light-secondary dark:text-text-dark-secondary">Last 30 days</p>
+                      <p className="text-sm text-text-light-secondary dark:text-text-dark-secondary">Últimos 30 días</p>
                       <p className="flex items-center text-sm font-medium text-green-500">
                         <span className="material-symbols-outlined text-sm">arrow_upward</span>
                         +15%
                       </p>
                     </div>
-                    <div className="grid min-h-[180px] grid-flow-col grid-rows-[1fr_auto] items-end justify-items-center gap-6 pt-6">
-                      {weeklyStats.map((item) => (
+                    <div className="grid min-h-[180px] grid-flow-col grid-rows-[1fr_auto] items-end justify-items-center gap-6 pt-2">
+                      {assistantTrend.map((item) => (
                         <div key={item.label} className="flex w-full flex-col items-center gap-2">
                           <div
                             className={`w-full rounded-t-md ${item.highlight ? "bg-primary" : "bg-primary/30"}`}
@@ -128,62 +180,64 @@ export default function ProfilePage() {
                         </div>
                       ))}
                     </div>
-                  </div>
-                  <div className="flex flex-col gap-2 rounded-xl border border-border-light bg-surface-light p-6 dark:border-border-dark dark:bg-surface-dark">
-                    <p className="text-base font-medium text-text-light-primary dark:text-text-dark-primary">Time Spent</p>
-                    <p className="text-4xl font-bold text-primary">82 hrs</p>
-                    <div className="flex items-center gap-1">
-                      <p className="text-sm text-text-light-secondary dark:text-text-dark-secondary">Last 30 days</p>
-                      <p className="flex items-center text-sm font-medium text-green-500">
-                        <span className="material-symbols-outlined text-sm">arrow_upward</span>
-                        +10%
+                    <div className="rounded-lg border border-border-light bg-background-light/60 p-4 dark:border-border-dark dark:bg-background-dark/40">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-text-light-secondary dark:text-text-dark-secondary">
+                        Temas más consultados
                       </p>
+                      <ul className="mt-3 space-y-2">
+                        {assistantTopics.map((item) => (
+                          <li key={item.topic} className="flex items-center justify-between text-sm">
+                            <span className="font-medium text-text-light-primary dark:text-text-dark-primary">{item.topic}</span>
+                            <span className="text-xs font-semibold text-primary">{item.share}%</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <div className="flex min-h-[180px] items-center justify-center pt-6">
-                      <div className="relative h-40 w-40">
-                        <svg viewBox="0 0 36 36" className="h-full w-full">
-                          <path
-                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                            fill="none"
-                            stroke="#e7edf3"
-                            strokeWidth="3"
-                          />
-                          <path
-                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                            fill="none"
-                            stroke="#4799eb"
-                            strokeDasharray="90, 100"
-                            strokeLinecap="round"
-                            strokeWidth="3"
-                          />
-                          <path
-                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                            fill="none"
-                            stroke="#89CFF0"
-                            strokeDasharray="40, 100"
-                            strokeDashoffset="-90"
-                            strokeLinecap="round"
-                            strokeWidth="3"
-                          />
-                          <path
-                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                            fill="none"
-                            stroke="#AEC6CF"
-                            strokeDasharray="25, 100"
-                            strokeDashoffset="-130"
-                            strokeLinecap="round"
-                            strokeWidth="3"
-                          />
-                        </svg>
-                      </div>
+                  </div>
+                  <div className="flex flex-col gap-4 rounded-xl border border-border-light bg-surface-light p-6 dark:border-border-dark dark:bg-surface-dark">
+                    <p className="text-base font-medium text-text-light-primary dark:text-text-dark-primary">Participación activa</p>
+                    <div className="rounded-lg bg-background-light/60 p-4 dark:bg-background-dark/40">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-text-light-secondary dark:text-text-dark-secondary">
+                        Últimos 30 días
+                      </p>
+                      <p className="mt-2 text-3xl font-bold text-primary">82 puntos de compromiso</p>
                     </div>
+                    <ul className="space-y-3">
+                      {participationMetrics.map((metric) => (
+                        <li key={metric.label} className="flex flex-col gap-1">
+                          <div className="flex items-center justify-between text-sm">
+                            <span className="font-medium text-text-light-primary dark:text-text-dark-primary">{metric.label}</span>
+                            <span className="text-base font-semibold text-primary">{metric.value}</span>
+                          </div>
+                          <div className="flex items-center justify-between text-xs text-text-light-secondary dark:text-text-dark-secondary">
+                            <span>vs. mes anterior</span>
+                            <span
+                              className={`flex items-center gap-1 font-semibold ${
+                                metric.delta >= 0 ? "text-green-500" : "text-red-500"
+                              }`}
+                            >
+                              <span className="material-symbols-outlined text-sm">
+                                {metric.delta >= 0 ? "arrow_upward" : "arrow_downward"}
+                              </span>
+                              {metric.delta >= 0 ? `+${metric.delta}%` : `${metric.delta}%`}
+                            </span>
+                          </div>
+                          <div className="h-2 rounded-full bg-background-light dark:bg-background-dark">
+                            <div
+                              className="h-2 rounded-full bg-primary/70 transition-all"
+                              style={{ width: `${Math.min(metric.value, 100)}%` }}
+                            />
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2 rounded-xl border border-border-light bg-surface-light p-6 dark:border-border-dark dark:bg-surface-dark">
-                  <p className="text-base font-medium text-text-light-primary dark:text-text-dark-primary">Comprehension Index</p>
+                  <p className="text-base font-medium text-text-light-primary dark:text-text-dark-primary">Índice de comprensión</p>
                   <p className="text-4xl font-bold text-primary">85%</p>
                   <div className="flex items-center gap-1">
-                    <p className="text-sm text-text-light-secondary dark:text-text-dark-secondary">Last 30 days</p>
+                    <p className="text-sm text-text-light-secondary dark:text-text-dark-secondary">Últimos 30 días</p>
                     <p className="flex items-center text-sm font-medium text-green-500">
                       <span className="material-symbols-outlined text-sm">arrow_upward</span>
                       +5%
@@ -230,6 +284,57 @@ export default function ProfilePage() {
                       ))}
                     </div>
                   </div>
+                  <div className="mt-6 grid gap-3 md:grid-cols-2">
+                    {comprehensionSections.map((section) => (
+                      <div
+                        key={section.section}
+                        className="rounded-lg border border-border-light bg-background-light/60 p-3 dark:border-border-dark dark:bg-background-dark/40"
+                      >
+                        <p className="text-xs font-semibold uppercase tracking-wide text-text-light-secondary dark:text-text-dark-secondary">
+                          {section.section}
+                        </p>
+                        <p className="mt-2 text-lg font-bold text-primary">{section.score}%</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="grid gap-6 lg:grid-cols-2">
+                  <div className="flex flex-col gap-4 rounded-xl border border-border-light bg-surface-light p-6 dark:border-border-dark dark:bg-surface-dark">
+                    <p className="text-base font-medium text-text-light-primary dark:text-text-dark-primary">Mapas mentales generados</p>
+                    <ul className="space-y-3">
+                      {mindMapHighlights.map((item) => (
+                        <li key={item.title} className="rounded-lg border border-border-light bg-background-light/60 p-3 text-sm dark:border-border-dark dark:bg-background-dark/40">
+                          <p className="font-semibold text-text-light-primary dark:text-text-dark-primary">{item.title}</p>
+                          <p className="mt-1 text-text-light-secondary dark:text-text-dark-secondary">{item.detail}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="flex flex-col gap-4 rounded-xl border border-border-light bg-surface-light p-6 dark:border-border-dark dark:bg-surface-dark">
+                    <p className="text-base font-medium text-text-light-primary dark:text-text-dark-primary">Feedback de la clase</p>
+                    <div className="grid gap-3">
+                      {feedbackMetrics.map((metric) => (
+                        <div
+                          key={metric.label}
+                          className="flex items-center justify-between rounded-lg border border-border-light bg-background-light/60 px-4 py-3 text-sm dark:border-border-dark dark:bg-background-dark/40"
+                        >
+                          <span className="font-medium text-text-light-primary dark:text-text-dark-primary">{metric.label}</span>
+                          <span className="text-base font-semibold text-primary">{metric.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="rounded-xl border border-border-light bg-surface-light p-6 dark:border-border-dark dark:bg-surface-dark">
+                  <p className="text-base font-medium text-text-light-primary dark:text-text-dark-primary">Acciones sugeridas</p>
+                  <ul className="mt-4 space-y-3">
+                    {actionableInsights.map((insight) => (
+                      <li key={insight} className="flex items-start gap-3 text-sm text-text-light-secondary dark:text-text-dark-secondary">
+                        <span className="mt-1 size-2 flex-shrink-0 rounded-full bg-primary" />
+                        <span>{insight}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
