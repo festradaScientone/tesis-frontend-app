@@ -6,10 +6,10 @@ import { type ReactNode } from "react";
 import { RedirectToSignIn, SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
 
 const navigationItems = [
-  { href: "/dashboard", label: "Dashboard" },
-  { href: "/course", label: "Cursos" },
-  { href: "/video-analysis", label: "Análisis de Video" },
-  { href: "/mind-map", label: "Mapa Mental" },
+  //{ href: "/dashboard", label: "Dashboard" },
+  //{ href: "/course", label: "Cursos" },
+  //{ href: "/video-analysis", label: "Análisis de Video" },
+  //{ href: "/mind-map", label: "Mapa Mental" },
   { href: "/profile", label: "Perfil" },
 ];
 
